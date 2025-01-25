@@ -56,7 +56,7 @@ const createTrpcHandler = (
       const getInput = procedureType === 'query' ? getQueryInput : getMutationInput
       const httpHandler = procedureType === 'query' ? http.get : http.post
 
-      const urlRegex = new RegExp(`${url}/${path.replace('.', '[/.|.]')}$`)
+      const urlRegex = new RegExp(`${url}/${path.replace('.', '[/.|.]')}`)
 
       return httpHandler(urlRegex, async (params) => {
         try {
